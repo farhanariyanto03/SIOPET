@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="198" pageHeight="842" columnWidth="198" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="948ff9ae-e81d-41e1-97d4-31291e39d6c5">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="kode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select tb_transaksi_gromming.id_transaksi_gromming, tb_gromming.nama_gromming, tb_pelanggan.nama_pelanggan, detail_transaksi_gromming.qty, detail_transaksi_gromming.harga_gromming, detail_transaksi_gromming.total_hargaGromming, tb_transaksi_gromming.total, tb_transaksi_gromming.bayar, tb_transaksi_gromming.kembalian, tb_transaksi_gromming.tanggal_transaksi  
+                from detail_transaksi_gromming
+                JOIN tb_gromming ON tb_gromming.id_gromming = detail_transaksi_gromming.id_gromming
+                JOIN tb_pelanggan ON tb_pelanggan.id_pelanggan = detail_transaksi_gromming.id_pelanggan
+                JOIN tb_transaksi_gromming ON tb_transaksi_gromming.id_transaksi_gromming = detail_transaksi_gromming.id_transaksi_gromming
+                where detail_transaksi_gromming.id_transaksi_gromming = $P{kode}]]>
+	</queryString>
+	<field name="id_transaksi_gromming" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_gromming" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_pelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga_gromming" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_hargaGromming" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_transaksi" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="id_transaksi_gromming">
+		<groupExpression><![CDATA[$F{id_transaksi_gromming}]]></groupExpression>
+		<groupFooter>
+			<band height="197">
+				<staticText>
+					<reportElement x="65" y="20" width="35" height="14" uuid="640b287c-64ea-4d47-823c-4e146610b3ab"/>
+					<text><![CDATA[TOTAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="66" y="48" width="59" height="14" uuid="ec4b2553-718f-400d-b872-603884762606"/>
+					<text><![CDATA[KEMBALIAN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="66" y="34" width="35" height="14" uuid="180d08e7-7506-4fba-a8be-2356198f6f73"/>
+					<text><![CDATA[BAYAR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="79" width="195" height="15" uuid="57fb1e66-d27f-46d3-8b54-54ce356bae7c"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[TERIMAKASIH TELAH BERBELANJA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="94" width="193" height="15" uuid="092d3c9c-b895-41c7-ab60-891328634485"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[JANGAN LUPA FOLLOW IG KAMI]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="109" width="193" height="15" uuid="51562384-5c1a-44ce-aca5-7e35b1c6aa21"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[FARHAAYANTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="2" width="200" height="13" uuid="fdce6d8f-106f-44f1-9f76-e3384e3da06c"/>
+					<text><![CDATA[--------------------------------------------------------------------------------------]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="151" y="20" width="59" height="14" uuid="7c6e9578-f661-4b69-bcf8-cbd65645cdfd"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="151" y="34" width="59" height="14" uuid="4e011608-0464-43ec-8266-50a5faa44842"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{bayar}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="151" y="48" width="59" height="14" uuid="ddf7dbfc-b93e-482a-88ef-32d95f1a4600"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{kembalian}]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="0" y="128" width="194" height="53" uuid="005da5c6-8696-43dc-8b44-590c80aa316a"/>
+					<imageExpression><![CDATA["C:\\Users\\ASUS\\Documents\\NetBeansProjects\\siopet\\src\\barcode\\"+$F{id_transaksi_gromming}+".png"]]></imageExpression>
+				</image>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="83" y="19" width="37" height="18" uuid="083d6d47-40c4-449e-b2b2-8507c88d688b"/>
+				<text><![CDATA[SIOPET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="37" width="124" height="13" uuid="2c4e9dc6-455c-4ea7-a731-808cef4d53ac"/>
+				<text><![CDATA[Jalan Sriwijaya 1/1 Jember]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="6" width="188" height="13" uuid="1fd78db9-cc27-49d2-afd5-27027c1e96c4"/>
+				<text><![CDATA[===============================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="50" width="100" height="13" uuid="88fc7641-4160-4469-a253-210427841eb9"/>
+				<text><![CDATA[12345678909876545678]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="63" width="182" height="13" uuid="a506c42a-1722-466b-a9b0-a7404f8baf3e"/>
+				<text><![CDATA[===============================]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="151" y="1" width="44" height="13" uuid="fb96e417-c6a0-4c5b-aa9d-5952dd980e58"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SIOPET!]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="14" width="60" height="14" uuid="29cc3b16-9f2e-4ce3-bdd9-0d0a37892fa6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID TRANSAKSI :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="28" width="197" height="13" uuid="2661879d-d2e8-4408-b64e-78fdd0dc84c3"/>
+				<text><![CDATA[------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="14" width="65" height="14" uuid="9aff9e3e-09aa-4474-a267-08ccbca3bb55"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_transaksi_gromming}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="100" height="14" uuid="b2220203-d86c-4399-8a9b-e1d5405abcdc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="14" width="44" height="14" uuid="fd84b741-db91-401f-83d2-301d92a4e429"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_pelanggan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="15" width="12" height="16" uuid="42975d0f-611a-45d6-bc7c-40595b17271d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="28" y="16" width="55" height="15" uuid="de3de827-de7e-40a8-8c66-8351d51a6425"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga_gromming}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="16" width="49" height="15" uuid="6445d4f3-9528-4630-a31b-48201f56d586"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_hargaGromming}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="16" width="15" height="15" uuid="9f020bcf-e157-4995-8c72-1c404d8bc5f7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="3" width="82" height="12" uuid="0761adf3-eceb-4b7c-892b-00654df4458d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_gromming}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

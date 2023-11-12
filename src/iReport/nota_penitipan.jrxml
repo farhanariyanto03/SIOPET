@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="198" pageHeight="841" columnWidth="198" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="407ee39a-52b9-47f1-b10b-1672956a7fd8">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="56a1979f-ec30-41ac-aa2b-fde6787331a1"/>
+	<parameter name="kode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select tb_transaksi_barang.id_transaksi_barang, tb_barang.nama_barang, tb_pelanggan.nama_pelanggan, detail_transaksi_barang.qty, detail_transaksi_barang.harga_barang, detail_transaksi_barang.total_hargaBarang, tb_transaksi_barang.total, tb_transaksi_barang.bayar, tb_transaksi_barang.kembalian, tb_transaksi_barang.tanggal_transaksi  
+                from detail_transaksi_barang
+                JOIN tb_barang ON tb_barang.id_barang = detail_transaksi_barang.id_barang
+                JOIN tb_pelanggan ON tb_pelanggan.id_pelanggan = detail_transaksi_barang.id_pelanggan
+                JOIN tb_transaksi_barang ON tb_transaksi_barang.id_transaksi_barang = detail_transaksi_barang.id_transaksi_barang
+                where detail_transaksi_barang.id_transaksi_barang = $P{kode}]]>
+	</queryString>
+	<field name="id_transaksi_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_pelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga_barang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_transaksi" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_hargaBarang" class="java.lang.String"/>
+	<group name="id_transaksi_barang">
+		<groupExpression><![CDATA[$F{id_transaksi_barang}]]></groupExpression>
+		<groupFooter>
+			<band height="175"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="23" width="37" height="18" uuid="cdf84189-721c-4786-be8c-882851c1d877"/>
+				<text><![CDATA[SIOPET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="54" width="100" height="13" uuid="369c0d7e-72d8-4619-828e-d05a6c49ee03"/>
+				<text><![CDATA[12345678909876545678]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="41" width="124" height="13" uuid="e0a68059-aeb6-4a81-9f32-a143049e519f"/>
+				<text><![CDATA[Jalan Sriwijaya 1/1 Jember]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="67" width="182" height="13" uuid="4a08e731-0f8d-4be1-a8d6-c4d96381f9ac"/>
+				<text><![CDATA[===============================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="188" height="13" uuid="21fc4c69-6e64-4ef0-95f6-f0d8e103447a"/>
+				<text><![CDATA[===============================]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="33" splitType="Stretch"/>
+	</detail>
+</jasperReport>
